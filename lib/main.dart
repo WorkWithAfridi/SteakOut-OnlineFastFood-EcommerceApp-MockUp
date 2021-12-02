@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meat_one/view/landing_page/landing_page.dart';
+import 'package:meat_one/view/signin_page/signin_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: LandingPage.routeName,
       routes: {
         LandingPage.routeName:(context)=>LandingPage(),
+        SignInPage.routeName:(context)=>SignInPage(),
       },
     );
   }

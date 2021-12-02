@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meat_one/view/signin_page/signin_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class LandingPage extends StatefulWidget {
@@ -24,6 +25,7 @@ class _LandingPageState extends State<LandingPage> {
         ),
       ),
       backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
       body: Container(
         child: Stack(
           children: [
@@ -83,12 +85,12 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          print('Login');
+                          Navigator.pushNamed(context, SignInPage.routeName);
                         },
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
                           width: MediaQuery.of(context).size.width * .9,
-                          height: MediaQuery.of(context).size.height * .1,
+                          height: MediaQuery.of(context).size.height * .08,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             color: Theme.of(context).colorScheme.primary,
@@ -100,7 +102,7 @@ class _LandingPageState extends State<LandingPage> {
                                 'Open Sans',
                                 textStyle: const TextStyle(
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 20,
+                                    fontSize: 15,
                                     color: Colors.white),
                               ),
                             ),
@@ -117,7 +119,7 @@ class _LandingPageState extends State<LandingPage> {
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
                           width: MediaQuery.of(context).size.width * .9,
-                          height: MediaQuery.of(context).size.height * .1,
+                          height: MediaQuery.of(context).size.height * .08,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                             color: Theme.of(context).colorScheme.secondary,
@@ -129,7 +131,7 @@ class _LandingPageState extends State<LandingPage> {
                                 'Open Sans',
                                 textStyle: const TextStyle(
                                     fontWeight: FontWeight.w700,
-                                    fontSize: 20,
+                                    fontSize: 15,
                                     color: Colors.white),
                               ),
                             ),
@@ -144,12 +146,13 @@ class _LandingPageState extends State<LandingPage> {
                           print('Shop as guest');
                         },
                         child: Text(
-                          'Shop as guest',
+                          'Shop as guest.',
                           style: GoogleFonts.getFont(
                             'Open Sans',
                             textStyle: const TextStyle(
-                                decoration: TextDecoration.underline,
-                                fontWeight: FontWeight.w600),
+                              decoration: TextDecoration.underline,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                       ),
