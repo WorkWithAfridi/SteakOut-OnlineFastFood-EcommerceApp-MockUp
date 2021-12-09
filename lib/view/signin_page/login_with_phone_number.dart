@@ -196,7 +196,7 @@ class _SigninWithPhoneNumberState extends State<SigninWithPhoneNumber> {
                           InkWell(
                             onTap: () {
                               if(_verifyNumber){
-                                Navigator.of(context).pushNamed(HomePage.routeName);
+                                Navigator.pushNamedAndRemoveUntil(context, HomePage.routeName, (route) => false);
                                 return;
                               }
                               setState(() {

@@ -270,7 +270,8 @@ class _SignInPageState extends State<SignInPage> {
                             onTap: () {
                               print(_email);
                               print(_password);
-                              Navigator.of(context).pushNamed(HomePage.routeName);
+                              // Navigator.of(context).pushNamed(HomePage.routeName);
+                              Navigator.pushNamedAndRemoveUntil(context, HomePage.routeName, (route) => false);
                             },
                             borderRadius: BorderRadius.circular(10),
                             child: Container(

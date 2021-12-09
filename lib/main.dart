@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:meat_one/model/product/data_model_for_promotions.dart';
 import 'package:meat_one/view/home_page/home_page.dart';
+import 'package:meat_one/view/home_page/home_tab/product_page.dart';
 import 'package:meat_one/view/landing_page/landing_page.dart';
 import 'package:meat_one/view/signin_page/login_with_phone_number.dart';
 import 'package:meat_one/view/signin_page/signin_page.dart';
@@ -32,6 +34,7 @@ class MyApp extends StatelessWidget {
         SignUpPage.routeName: (context) => SignUpPage(),
         SigninWithPhoneNumber.routeName: (context) => SigninWithPhoneNumber(),
         HomePage.routeName: (context) => HomePage(),
+        ProductPage.routeName:(context)=>ProductPage(),
       },
     );
   }
