@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:meat_one/view/home_page/home_page.dart';
-import 'package:meat_one/view/signin_page/login_with_phone_number.dart';
-import 'package:meat_one/view/signup_page/signup_page.dart';
+import 'package:meat_one/view/signin_page/signin_page.dart';
 
-class SignInPage extends StatefulWidget {
-  static const routeName = '/signin';
-  const SignInPage({Key? key}) : super(key: key);
+class SignUpPage extends StatefulWidget {
+  static const routeName = '/signup';
+  const SignUpPage({Key? key}) : super(key: key);
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpPageState extends State<SignUpPage> {
   bool isVisible = false;
   String _email = '';
   String _password = '';
@@ -41,10 +39,10 @@ class _SignInPageState extends State<SignInPage> {
                     Navigator.pop(context);
                   },
                   child: Container(
-                    height: 70,
-                    width: MediaQuery.of(context).size.width,
-                    alignment: Alignment.centerLeft,
-                    child: Icon(Icons.arrow_back_ios)
+                      height: 70,
+                      width: MediaQuery.of(context).size.width,
+                      alignment: Alignment.centerLeft,
+                      child: Icon(Icons.arrow_back_ios)
                   ),
                 ),
               ),
@@ -66,7 +64,7 @@ class _SignInPageState extends State<SignInPage> {
                           width: MediaQuery.of(context).size.width,
                           alignment: Alignment.center,
                           child: Text(
-                            'Stake\nOut',
+                            'meat\none',
                             textAlign: TextAlign.end,
                             style: GoogleFonts.getFont('Permanent Marker',
                                 height: .6, fontSize: 40),
@@ -76,7 +74,7 @@ class _SignInPageState extends State<SignInPage> {
                           height: 50,
                         ),
                         Text(
-                          'Sign in to\nyour account.',
+                          'Sign up for\na new account.',
                           style: GoogleFonts.getFont(
                             'Open Sans',
                             textStyle: const TextStyle(
@@ -190,11 +188,11 @@ class _SignInPageState extends State<SignInPage> {
                                             width: 50,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(
+                                              BorderRadius.circular(
                                                 15,
                                               ),
                                               color:
-                                                  Colors.grey.withOpacity(.3),
+                                              Colors.grey.withOpacity(.3),
                                             ),
                                             child: const Icon(
                                               Icons.facebook,
@@ -212,11 +210,11 @@ class _SignInPageState extends State<SignInPage> {
                                             width: 50,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(
+                                              BorderRadius.circular(
                                                 15,
                                               ),
                                               color:
-                                                  Colors.grey.withOpacity(.3),
+                                              Colors.grey.withOpacity(.3),
                                             ),
                                             child: const Icon(
                                               Icons.sports_volleyball_sharp,
@@ -234,11 +232,11 @@ class _SignInPageState extends State<SignInPage> {
                                             width: 50,
                                             decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(
+                                              BorderRadius.circular(
                                                 15,
                                               ),
                                               color:
-                                                  Colors.grey.withOpacity(.3),
+                                              Colors.grey.withOpacity(.3),
                                             ),
                                             child: const Icon(
                                               Icons.switch_right_sharp,
@@ -270,7 +268,6 @@ class _SignInPageState extends State<SignInPage> {
                             onTap: () {
                               print(_email);
                               print(_password);
-                              Navigator.of(context).pushNamed(HomePage.routeName);
                             },
                             borderRadius: BorderRadius.circular(10),
                             child: Container(
@@ -278,12 +275,12 @@ class _SignInPageState extends State<SignInPage> {
                               height: MediaQuery.of(context).size.height * .08,
                               decoration: BoxDecoration(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
+                                BorderRadius.all(Radius.circular(10)),
                                 color: Theme.of(context).colorScheme.primary,
                               ),
                               child: Center(
                                 child: Text(
-                                  'Login',
+                                  'Confirm',
                                   style: GoogleFonts.getFont(
                                     'Open Sans',
                                     textStyle: const TextStyle(
@@ -300,7 +297,7 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           InkWell(
                             onTap: () {
-                              Navigator.of(context).pushNamed(SigninWithPhoneNumber.routeName);
+                              print("Sign up using phone");
                             },
                             borderRadius: BorderRadius.circular(10),
                             child: Container(
@@ -308,12 +305,12 @@ class _SignInPageState extends State<SignInPage> {
                               height: MediaQuery.of(context).size.height * .08,
                               decoration: BoxDecoration(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
+                                BorderRadius.all(Radius.circular(10)),
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
                               child: Center(
                                 child: Text(
-                                  'Login with Phone Number',
+                                  'Signup with Phone Number',
                                   style: GoogleFonts.getFont(
                                     'Open Sans',
                                     textStyle: const TextStyle(
@@ -330,10 +327,10 @@ class _SignInPageState extends State<SignInPage> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pushNamed(SignUpPage.routeName);
+                              Navigator.of(context).pushNamed(SignInPage.routeName);
                             },
                             child: Text(
-                              'Not a user yet? Sign up.',
+                              'Already a user? Signin now!',
                               style: GoogleFonts.getFont(
                                 'Open Sans',
                                 textStyle: const TextStyle(

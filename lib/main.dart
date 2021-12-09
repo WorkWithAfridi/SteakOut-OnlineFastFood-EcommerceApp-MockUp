@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:meat_one/view/home_page/home_page.dart';
 import 'package:meat_one/view/landing_page/landing_page.dart';
+import 'package:meat_one/view/signin_page/login_with_phone_number.dart';
 import 'package:meat_one/view/signin_page/signin_page.dart';
+import 'package:meat_one/view/signup_page/signup_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,19 +16,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'StakeOut',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: Color(0xffEC1A25),
           secondary: Color(0xff212121),
-            background: Color(0xffFFFFFF)
+          background: Color(0xffFFFFFF),
         ),
         primarySwatch: Colors.blue,
       ),
       initialRoute: LandingPage.routeName,
       routes: {
-        LandingPage.routeName:(context)=>LandingPage(),
-        SignInPage.routeName:(context)=>SignInPage(),
+        LandingPage.routeName: (context) => LandingPage(),
+        SignInPage.routeName: (context) => SignInPage(),
+        SignUpPage.routeName: (context) => SignUpPage(),
+        SigninWithPhoneNumber.routeName: (context) => SigninWithPhoneNumber(),
+        HomePage.routeName: (context) => HomePage(),
       },
     );
   }

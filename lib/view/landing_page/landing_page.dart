@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meat_one/view/signin_page/signin_page.dart';
+import 'package:meat_one/view/signup_page/signup_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class LandingPage extends StatefulWidget {
@@ -45,12 +46,13 @@ class _LandingPageState extends State<LandingPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       const SizedBox(
                         height: 30,
                       ),
                       Text(
-                        'meat\none',
+                        'Stake\nOut',
                         textAlign: TextAlign.end,
                         style: GoogleFonts.getFont('Permanent Marker',
                             height: .6, fontSize: 40),
@@ -65,9 +67,9 @@ class _LandingPageState extends State<LandingPage> {
                           controller: _pageController,
                           count: 3,
                           effect: ScrollingDotsEffect(
-                            radius: 10,
-                            dotHeight: 10,
-                            dotWidth: 10,
+                            radius: 7,
+                            dotHeight:7,
+                            dotWidth: 7,
                             spacing: 5,
                             dotColor: Colors.grey,
                             activeDotColor:
@@ -85,7 +87,7 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.pushNamed(context, SignInPage.routeName);
+                          Navigator.of(context).pushNamed(SignInPage.routeName);
                         },
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
@@ -114,7 +116,7 @@ class _LandingPageState extends State<LandingPage> {
                       ),
                       InkWell(
                         onTap: () {
-                          print('Sign up');
+                          Navigator.of(context).pushNamed(SignUpPage.routeName);
                         },
                         borderRadius: BorderRadius.circular(10),
                         child: Container(
