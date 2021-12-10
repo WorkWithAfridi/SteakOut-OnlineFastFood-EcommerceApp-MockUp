@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:meat_one/model/product/data_model_for_cart.dart';
 import 'package:meat_one/model/product/data_model_for_promotions.dart';
 
 class ProductPage extends StatefulWidget {
@@ -11,8 +12,9 @@ class ProductPage extends StatefulWidget {
 }
 
 class _ProductPageState extends State<ProductPage> {
-  int productCount = 0;
+  int productCount = 1;
   int price = 0;
+  bool isAddedToCart = false;
   @override
   Widget build(BuildContext context) {
     var routeArs =
@@ -70,7 +72,8 @@ class _ProductPageState extends State<ProductPage> {
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       children: [
                                         Text(
                                           product.name,
@@ -83,7 +86,8 @@ class _ProductPageState extends State<ProductPage> {
                                           'Location',
                                           style: TextStyle(
                                               fontSize: 15,
-                                              color: Colors.black.withOpacity(.3),
+                                              color:
+                                                  Colors.black.withOpacity(.3),
                                               fontWeight: FontWeight.bold),
                                         ),
                                       ],
@@ -96,12 +100,14 @@ class _ProductPageState extends State<ProductPage> {
                                     child: Row(
                                       children: [
                                         Container(
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  .05,
-                                          width:
-                                              MediaQuery.of(context).size.width *
-                                                  .2,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .05,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .2,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
@@ -111,8 +117,8 @@ class _ProductPageState extends State<ProductPage> {
                                             child: Text(
                                               '${product.price} TK.',
                                               style: const TextStyle(
-                                                  decoration:
-                                                      TextDecoration.lineThrough,
+                                                  decoration: TextDecoration
+                                                      .lineThrough,
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.bold),
                                             ),
@@ -122,12 +128,14 @@ class _ProductPageState extends State<ProductPage> {
                                           width: 10,
                                         ),
                                         Container(
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  .05,
-                                          width:
-                                              MediaQuery.of(context).size.width *
-                                                  .2,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              .05,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              .2,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
@@ -189,7 +197,8 @@ class _ProductPageState extends State<ProductPage> {
                                         height: 40,
                                         width: 40,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           color: Theme.of(context)
                                               .colorScheme
                                               .primary,
@@ -204,7 +213,7 @@ class _ProductPageState extends State<ProductPage> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10,
                                     ),
                                     Container(
@@ -214,26 +223,29 @@ class _ProductPageState extends State<ProductPage> {
                                       alignment: Alignment.center,
                                       child: Text(
                                         productCount.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: Colors.black,
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10,
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        setState(() {
-                                          productCount--;
-                                        });
+                                        if (productCount > 1) {
+                                          setState(() {
+                                            productCount--;
+                                          });
+                                        }
                                       },
                                       child: Container(
                                         height: 40,
                                         width: 40,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           color: Theme.of(context)
                                               .colorScheme
                                               .primary,
@@ -297,7 +309,9 @@ class _ProductPageState extends State<ProductPage> {
                                         fontSize: 15,
                                         fontWeight: FontWeight.bold),
                                   ),
-                                  SizedBox(width: 5,),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
                                   Text(
                                     '(${productCount} items)',
                                     style: const TextStyle(
@@ -311,7 +325,7 @@ class _ProductPageState extends State<ProductPage> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Text(
-                                    '${((int.parse(product.price) - (int.parse(product.discountPercentage)))*productCount).toString()}Tk',
+                                    '${((int.parse(product.price) - (int.parse(product.discountPercentage))) * productCount).toString()}Tk',
                                     style: const TextStyle(
                                         color: Colors.black,
                                         fontSize: 20,
@@ -331,40 +345,61 @@ class _ProductPageState extends State<ProductPage> {
                           SizedBox(
                             height: 20,
                           ),
-
                           Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               InkWell(
-                                onTap: () {
-                                },
+                                onTap: () {},
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
                                   width: MediaQuery.of(context).size.width * .2,
-                                  height: MediaQuery.of(context).size.height * .08,
+                                  height:
+                                      MediaQuery.of(context).size.height * .08,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
                                     color: Colors.black,
                                   ),
                                   child: Center(
-                                    child: Icon(Icons.favorite, size: 30, color: Colors.white,)
-                                  ),
+                                      child: Icon(
+                                    Icons.favorite,
+                                    size: 30,
+                                    color: Colors.white,
+                                  )),
                                 ),
                               ),
                               InkWell(
                                 onTap: () {
+                                  if (productCount > 0) {
+                                    if (isAddedToCart) {
+                                      var snackBar = SnackBar(
+                                          content: Text('Cart Updated.'));
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(snackBar);
+                                    }
+                                    setState(() {
+                                      isAddedToCart = true;
+                                      cart.add(product);
+                                    });
+                                  }
                                 },
                                 borderRadius: BorderRadius.circular(10),
                                 child: Container(
-                                  width: MediaQuery.of(context).size.width * .65,
-                                  height: MediaQuery.of(context).size.height * .08,
+                                  width:
+                                      MediaQuery.of(context).size.width * .65,
+                                  height:
+                                      MediaQuery.of(context).size.height * .08,
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                                    color: Theme.of(context).colorScheme.primary,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
                                   ),
                                   child: Center(
                                     child: Text(
-                                      'Proceed to Checkout',
+                                      isAddedToCart
+                                          ? 'Added to Cart'
+                                          : 'Add to Cart',
                                       style: GoogleFonts.getFont(
                                         'Open Sans',
                                         textStyle: const TextStyle(
@@ -379,7 +414,6 @@ class _ProductPageState extends State<ProductPage> {
                             ],
                           ),
                         ],
-
                       ),
                     ),
                   ),

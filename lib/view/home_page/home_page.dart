@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meat_one/view/home_page/home_tab/home_tab.dart';
+import 'package:meat_one/view/home_page/profile_tab/profile.dart';
+import 'package:meat_one/view/landing_page/landing_page.dart';
+
+import 'cart_tab/cart_tab.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
   static const routeName = '/home_page';
 
   @override
@@ -12,6 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _selectedTab = 0;
+  Icon searchOrSettingsIcon=Icon(Icons.search);
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +36,38 @@ class _HomePageState extends State<HomePage> {
             snap: true,
             floating: true,
             backgroundColor: Theme.of(context).colorScheme.onBackground,
+            actions: [
+              PopupMenuButton(
+                icon: const Icon(
+                  Icons.menu,
+                  color: Colors.black,
+                ),
+                itemBuilder: (context) => [
+                  const PopupMenuItem(
+                    child: Text('About us'),
+                    value: "Option 1",
+                  ),
+                  const PopupMenuItem(
+                    child: Text('Report a bug'),
+                    value: "Option 2",
+                  ),
+                  const PopupMenuItem(
+                    child: Text('Settings'),
+                    value: "Settings",
+                  ),
+                  const PopupMenuItem(
+                    child: Text('Logout'),
+                    value: "Logout",
+                  ),
+                ],
+                onSelected: (String value) {
+                  if (value == "Logout") {
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, LandingPage.routeName, (route) => false);
+                  }
+                },
+              ),
+            ],
             title: Text(
               'StakeOut',
               textAlign: TextAlign.start,
@@ -42,13 +79,6 @@ class _HomePageState extends State<HomePage> {
         ],
         body: Column(
           children: [
-            // Container(
-            //   padding: EdgeInsets.symmetric(horizontal: 10),
-            //   width: double.infinity,
-            //   height: 50,
-            //   // color: Colors.red,
-            //   // child:
-            // ),
             Container(
               padding:
                   EdgeInsets.only(left: 15, right: 15, bottom: 10, top: 10),
@@ -80,18 +110,14 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Container(
                         child: IconButton(
-                            onPressed: () {}, icon: Icon(Icons.search)),
+                            onPressed: () {}, icon: searchOrSettingsIcon),
                         decoration: BoxDecoration(
                           color: Colors.black.withOpacity(.1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      Icon(Icons.menu),
-                      SizedBox(
-                        width: 5,
+                      const SizedBox(
+                        width: 0,
                       ),
                     ],
                   ),
@@ -112,6 +138,7 @@ class _HomePageState extends State<HomePage> {
                       flex: 1,
                       child: GestureDetector(
                         onTap: () {
+                          searchOrSettingsIcon=Icon(Icons.search);
                           setState(() {
                             _selectedTab = 0;
                           });
@@ -124,7 +151,11 @@ class _HomePageState extends State<HomePage> {
                               color:
                                   _selectedTab == 0 ? Colors.red : Colors.black,
                             ),
-                            Text('Home')
+                            Text(
+                              'Home',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w500),
+                            )
                           ],
                         ),
                       ),
@@ -133,6 +164,7 @@ class _HomePageState extends State<HomePage> {
                       flex: 1,
                       child: GestureDetector(
                         onTap: () {
+                          searchOrSettingsIcon=Icon(Icons.search);
                           setState(() {
                             _selectedTab = 1;
                           });
@@ -145,7 +177,11 @@ class _HomePageState extends State<HomePage> {
                               color:
                                   _selectedTab == 1 ? Colors.red : Colors.black,
                             ),
-                            Text('Cart')
+                            Text(
+                              'Cart',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w500),
+                            )
                           ],
                         ),
                       ),
@@ -154,6 +190,7 @@ class _HomePageState extends State<HomePage> {
                       flex: 1,
                       child: GestureDetector(
                         onTap: () {
+                          searchOrSettingsIcon=Icon(Icons.search);
                           setState(() {
                             _selectedTab = 2;
                           });
@@ -166,7 +203,11 @@ class _HomePageState extends State<HomePage> {
                               color:
                                   _selectedTab == 2 ? Colors.red : Colors.black,
                             ),
-                            Text('Favorite')
+                            Text(
+                              'Favorite',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w500),
+                            )
                           ],
                         ),
                       ),
@@ -175,6 +216,7 @@ class _HomePageState extends State<HomePage> {
                       flex: 1,
                       child: GestureDetector(
                         onTap: () {
+                          searchOrSettingsIcon=Icon(Icons.settings);
                           setState(() {
                             _selectedTab = 3;
                           });
@@ -187,7 +229,11 @@ class _HomePageState extends State<HomePage> {
                               color:
                                   _selectedTab == 3 ? Colors.red : Colors.black,
                             ),
-                            Text('Wallet')
+                            Text(
+                              'Wallet',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w500),
+                            )
                           ],
                         ),
                       ),
@@ -196,6 +242,7 @@ class _HomePageState extends State<HomePage> {
                       flex: 1,
                       child: GestureDetector(
                         onTap: () {
+                          searchOrSettingsIcon=Icon(Icons.settings);
                           setState(() {
                             _selectedTab = 4;
                           });
@@ -208,7 +255,11 @@ class _HomePageState extends State<HomePage> {
                               color:
                                   _selectedTab == 4 ? Colors.red : Colors.black,
                             ),
-                            Text('Profile')
+                            const Text(
+                              'Profile',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w500),
+                            )
                           ],
                         ),
                       ),
@@ -224,38 +275,15 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getTab() {
-    if (_selectedTab == 0) return HomeTab();
+    if (_selectedTab == 0) {
+      return HomeTab();
+    }
+    if (_selectedTab == 1) {
+      return CartTab();
+    }
+    if (_selectedTab == 4) {
+      return ProfileTab();
+    }
     return HomePage();
   }
 }
-
-// Container(
-// height: MediaQuery.of(context).size.height * .3,
-// // color: Colors.red,
-// alignment: Alignment.topCenter,
-// child: ListView.builder(
-// scrollDirection: Axis.horizontal,
-// itemCount: product.length,
-// itemBuilder: (BuildContext context, int index) {
-// return Padding(
-// padding: const EdgeInsets.all(10.0),
-// child: Card(
-// elevation: 5,
-// shape: RoundedRectangleBorder(
-// borderRadius: BorderRadius.circular(15)),
-// child: Container(
-// decoration: BoxDecoration(
-// borderRadius: BorderRadius.circular(15)),
-// child: ClipRRect(
-// child: Image.asset(
-// product[index].imageUrl,
-// fit: BoxFit.contain,
-// ),
-// borderRadius: BorderRadius.circular(15),
-// ),
-// ),
-// ),
-// );
-// },
-// ),
-// )
