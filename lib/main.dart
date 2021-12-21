@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     //test
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'StakeOut',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
