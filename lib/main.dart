@@ -17,7 +17,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //test
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'StakeOut',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
@@ -28,7 +30,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: LandingPage.routeName,
-      debugShowCheckedModeBanner: false,
       routes: {
         LandingPage.routeName: (context) => LandingPage(),
         SignInPage.routeName: (context) => SignInPage(),
