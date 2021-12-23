@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meat_one/model/categories/data_model_for_steak_categories.dart';
@@ -45,40 +46,60 @@ class _HomeTabState extends State<HomeTab> {
               const SizedBox(
                 height: 2,
               ),
-              Container(
-                height: MediaQuery.of(context).size.height * .3,
-                child: PageView(
-                  controller: _pageController,
-                  children: [
-                    _Home_tab_promoton_page(0, context),
-                    _Home_tab_promoton_page(1, context),
-                    _Home_tab_promoton_page(2, context),
-                    _Home_tab_promoton_page(3, context),
-                    _Home_tab_promoton_page(4, context),
-                  ],
-                ),
+
+              CarouselSlider.builder(itemCount: items.length, itemBuilder: (context, int index, int pageViewIndex){
+                return Container(height: MediaQuery.of(context).size.height * .3,child: _Home_tab_promoton_page(index, context));
+              }, options: CarouselOptions(
+                // height: 400,
+                aspectRatio: 16/9,
+                viewportFraction: 0.8,
+                initialPage: 0,
+                enableInfiniteScroll: true,
+                reverse: false,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+                // onPageChanged: callbackFunction,
+                scrollDirection: Axis.horizontal,
               ),
-              Center(
-                child: SmoothPageIndicator(
-                    controller: _pageController,
-                    count: 5,
-                    effect: ScrollingDotsEffect(
-                      radius: 7,
-                      dotHeight: 7,
-                      dotWidth: 7,
-                      spacing: 5,
-                      dotColor: Colors.grey,
-                      activeDotColor:
-                      Theme.of(context).colorScheme.primary,
-                    ),
-                    onDotClicked: (index) {
-                      setState(() {
-                        _pageController.animateToPage(index,
-                            duration: const Duration(milliseconds: 500),
-                            curve: Curves.bounceOut);
-                      });
-                    }),
+                // carouselController: _pageController,
               ),
+              // Container(
+              //   height: MediaQuery.of(context).size.height * .3,
+              //   child: PageView(
+              //     controller: _pageController,
+              //     children: [
+              //       _Home_tab_promoton_page(0, context),
+              //       _Home_tab_promoton_page(1, context),
+              //       _Home_tab_promoton_page(2, context),
+              //       _Home_tab_promoton_page(3, context),
+              //       _Home_tab_promoton_page(4, context),
+              //     ],
+              //   ),
+              // ),
+              // Center(
+              //   child: SmoothPageIndicator(
+              //       controller: _pageController,
+              //       count: 5,
+              //       effect: ScrollingDotsEffect(
+              //         radius: 7,
+              //         dotHeight: 7,
+              //         dotWidth: 7,
+              //         spacing: 5,
+              //         dotColor: Colors.grey,
+              //         activeDotColor:
+              //         Theme.of(context).colorScheme.primary,
+              //       ),
+              //       onDotClicked: (index) {
+              //         setState(() {
+              //           _pageController.animateToPage(index,
+              //               duration: const Duration(milliseconds: 500),
+              //               curve: Curves.bounceOut);
+              //         });
+              //       }),
+              // ),
               SizedBox(
                 height: 15,
               ),
