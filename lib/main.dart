@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       initialRoute: LandingPage.routeName,
+      debugShowCheckedModeBanner: false,
       routes: {
         LandingPage.routeName: (context) => LandingPage(),
         SignInPage.routeName: (context) => SignInPage(),

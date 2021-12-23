@@ -33,6 +33,17 @@ class _SignInPageState extends State<SignInPage> {
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Stack(
             children: [
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 30),
+                width: double.infinity,
+                child: Text(
+                  'Steak\nOut',
+                  textAlign: TextAlign.end,
+                  style: GoogleFonts.getFont('Anton',
+                      fontWeight: FontWeight.w800,
+                      height: .9, fontSize: 40),
+                ),
+              ),
               Positioned(
                 top: 0,
                 left: 0,
@@ -62,32 +73,20 @@ class _SignInPageState extends State<SignInPage> {
                         const SizedBox(
                           height: 30,
                         ),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Stake\nOut',
-                            textAlign: TextAlign.end,
-                            style: GoogleFonts.getFont('Permanent Marker',
-                                height: .6, fontSize: 40),
-                          ),
-                        ),
+
                         const SizedBox(
                           height: 50,
                         ),
                         Text(
                           'Sign in to\nyour account.',
-                          style: GoogleFonts.getFont(
-                            'Open Sans',
-                            textStyle: const TextStyle(
-                              fontSize: 27,
-                              fontWeight: FontWeight.w700,
-                              height: .9,
-                            ),
-                          ),
+                          style: GoogleFonts.getFont('Ubuntu',
+                              textStyle: TextStyle(
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black)),
                         ),
                         SizedBox(
-                          height:20,
+                          height:10,
                         ),
                         TextFormField(
                           decoration: const InputDecoration(
@@ -140,7 +139,7 @@ class _SignInPageState extends State<SignInPage> {
                             child: Text(
                               'Forgot Password',
                               style: GoogleFonts.getFont(
-                                'Open Sans',
+                                'Ubuntu',
                                 textStyle: const TextStyle(
                                   wordSpacing: 2,
                                   decoration: TextDecoration.underline,
@@ -285,13 +284,11 @@ class _SignInPageState extends State<SignInPage> {
                               child: Center(
                                 child: Text(
                                   'Login',
-                                  style: GoogleFonts.getFont(
-                                    'Open Sans',
-                                    textStyle: const TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 15,
-                                        color: Colors.white),
-                                  ),
+                                  style: GoogleFonts.getFont('Ubuntu',
+                                      textStyle: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
                                 ),
                               ),
                             ),
@@ -315,13 +312,11 @@ class _SignInPageState extends State<SignInPage> {
                               child: Center(
                                 child: Text(
                                   'Login with Phone Number',
-                                  style: GoogleFonts.getFont(
-                                    'Open Sans',
-                                    textStyle: const TextStyle(
-                                        fontWeight: FontWeight.w700,
-                                        fontSize: 15,
-                                        color: Colors.white),
-                                  ),
+                                  style: GoogleFonts.getFont('Ubuntu',
+                                      textStyle: TextStyle(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
                                 ),
                               ),
                             ),
@@ -336,7 +331,7 @@ class _SignInPageState extends State<SignInPage> {
                             child: Text(
                               'Not a user yet? Sign up.',
                               style: GoogleFonts.getFont(
-                                'Open Sans',
+                                'Ubuntu',
                                 textStyle: const TextStyle(
                                   decoration: TextDecoration.underline,
                                   fontWeight: FontWeight.w600,

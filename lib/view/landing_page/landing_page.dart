@@ -51,11 +51,17 @@ class _LandingPageState extends State<LandingPage> {
                       const SizedBox(
                         height: 30,
                       ),
-                      Text(
-                        'Stake\nOut',
-                        textAlign: TextAlign.end,
-                        style: GoogleFonts.getFont('Permanent Marker',
-                            height: .6, fontSize: 40),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        width: double.infinity,
+                        child: Text(
+                          'Steak\nOut',
+                          textAlign: TextAlign.start,
+                          style: GoogleFonts.getFont('Anton',
+                              fontWeight: FontWeight.w800,
+                              height: .9,
+                              fontSize: 40),
+                        ),
                       ),
                     ],
                   ),
@@ -68,7 +74,7 @@ class _LandingPageState extends State<LandingPage> {
                           count: 3,
                           effect: ScrollingDotsEffect(
                             radius: 7,
-                            dotHeight:7,
+                            dotHeight: 7,
                             dotWidth: 7,
                             spacing: 5,
                             dotColor: Colors.grey,
@@ -100,13 +106,11 @@ class _LandingPageState extends State<LandingPage> {
                           child: Center(
                             child: Text(
                               'Login',
-                              style: GoogleFonts.getFont(
-                                'Open Sans',
-                                textStyle: const TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15,
-                                    color: Colors.white),
-                              ),
+                              style: GoogleFonts.getFont('Ubuntu',
+                                  textStyle: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
                             ),
                           ),
                         ),
@@ -129,13 +133,11 @@ class _LandingPageState extends State<LandingPage> {
                           child: Center(
                             child: Text(
                               'Sign up',
-                              style: GoogleFonts.getFont(
-                                'Open Sans',
-                                textStyle: const TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 15,
-                                    color: Colors.white),
-                              ),
+                              style: GoogleFonts.getFont('Ubuntu',
+                                  textStyle: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
                             ),
                           ),
                         ),
@@ -150,7 +152,7 @@ class _LandingPageState extends State<LandingPage> {
                         child: Text(
                           'Shop as guest.',
                           style: GoogleFonts.getFont(
-                            'Open Sans',
+                            'Ubuntu',
                             textStyle: const TextStyle(
                               decoration: TextDecoration.underline,
                               fontWeight: FontWeight.w600,
@@ -195,63 +197,64 @@ class _LandingPageState extends State<LandingPage> {
           'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. '
           'Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.';
     }
-    return Container(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 60,
-          ),
-          Container(
-            height: MediaQuery.of(context).size.height * .5,
-            width: double.infinity,
-            // color: Colors.red,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Column(
-                children: [
-                  Flexible(
-                    flex: 3,
-                    child: Container(
-                      height: double.infinity,
-                      child: Image.asset(
-                        imageLink,
-                        fit: BoxFit.contain,
-                      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(
+          height: 60,
+        ),
+        Container(
+          height: MediaQuery.of(context).size.height * .6,
+          width: double.infinity,
+          // color: Colors.red,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Column(
+              children: [
+                Flexible(
+                  flex: 3,
+                  child: Container(
+                    height: double.infinity,
+                    child: Image.asset(
+                      imageLink,
+                      fit: BoxFit.contain,
                     ),
                   ),
-                  Flexible(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Text(title,
-                            style: GoogleFonts.getFont('Roboto',
-                                textStyle: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w700))),
-                        const SizedBox(
-                          height: 5,
+                ),
+                Flexible(
+                  flex: 1,
+                  child: Column(
+                    children: [
+                      Text(title,
+                          style: GoogleFonts.getFont('Ubuntu',
+                              textStyle: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w700))),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        subTitle,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 4,
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.getFont(
+                          'Ubuntu',
+                          textStyle: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black.withOpacity(.5)),
                         ),
-                        Text(
-                          subTitle,
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 4,
-                          textAlign: TextAlign.center,
-                          style: GoogleFonts.getFont('Roboto',
-                              textStyle: TextStyle(
-                                  color: Colors.black.withOpacity(.5))),
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+                      )
+                    ],
+                  ),
+                )
+              ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

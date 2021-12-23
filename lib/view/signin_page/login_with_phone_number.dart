@@ -34,6 +34,18 @@ class _SigninWithPhoneNumberState extends State<SigninWithPhoneNumber> {
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Stack(
             children: [
+
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 30),
+                width: double.infinity,
+                child: Text(
+                  'Steak\nOut',
+                  textAlign: TextAlign.end,
+                  style: GoogleFonts.getFont('Anton',
+                      fontWeight: FontWeight.w800,
+                      height: .9, fontSize: 40),
+                ),
+              ),
               Positioned(
                 top: 0,
                 left: 0,
@@ -62,18 +74,8 @@ class _SigninWithPhoneNumberState extends State<SigninWithPhoneNumber> {
                         const SizedBox(
                           height: 30,
                         ),
-                        Container(
-                          width: MediaQuery.of(context).size.width,
-                          alignment: Alignment.center,
-                          child: Text(
-                            'Stake\nOut',
-                            textAlign: TextAlign.end,
-                            style: GoogleFonts.getFont('Permanent Marker',
-                                height: .6, fontSize: 40),
-                          ),
-                        ),
                         const SizedBox(
-                          height: 50,
+                          height: 100,
                         ),
                         Text(
                           'Please enter your phone number below.',

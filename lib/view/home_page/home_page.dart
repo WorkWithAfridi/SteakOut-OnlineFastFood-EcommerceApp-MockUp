@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:meat_one/view/home_page/home_tab/home_tab.dart';
 import 'package:meat_one/view/home_page/profile_tab/profile.dart';
+import 'package:meat_one/view/home_page/wallet_tab/wallet_tab.dart';
 import 'package:meat_one/view/landing_page/landing_page.dart';
 
 import 'cart_tab/cart_tab.dart';
@@ -68,11 +69,16 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ],
-            title: Text(
-              'StakeOut',
-              textAlign: TextAlign.start,
-              style: GoogleFonts.getFont('Permanent Marker',
-                  fontSize: 40, color: Colors.black),
+            title: Padding(
+              padding: const EdgeInsets.only(top: 30.0),
+              child: Text(
+                'Steak Out',
+                textAlign: TextAlign.end,
+                style: GoogleFonts.getFont('Anton',
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                    height: .9, fontSize: 40),
+              ),
             ),
             elevation: 0,
           )
@@ -94,15 +100,19 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Text(
                         'Current Location:',
-                        style: TextStyle(
-                            fontSize: 12, color: Colors.black.withOpacity(0.6)),
+                        style: GoogleFonts.getFont('Ubuntu',
+                            textStyle: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black)),
                       ),
-                      const Text(
+                      Text(
                         'Dhaka, Bangladesh',
-                        style: TextStyle(
-                            fontSize: 17,
-                            color: Colors.black,
-                            fontWeight: FontWeight.w600),
+                        style: GoogleFonts.getFont('Ubuntu',
+                            textStyle: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black)),
                       ),
                     ],
                   ),
@@ -154,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Home',
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w500),
+                                  fontSize: 15, fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
@@ -180,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Cart',
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w500),
+                                  fontSize: 15, fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
@@ -206,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Favorite',
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w500),
+                                  fontSize: 15, fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
@@ -232,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               'Wallet',
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w500),
+                                  fontSize: 15, fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
@@ -258,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                             const Text(
                               'Profile',
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.w500),
+                                  fontSize: 15, fontWeight: FontWeight.w400),
                             )
                           ],
                         ),
@@ -280,6 +290,9 @@ class _HomePageState extends State<HomePage> {
     }
     if (_selectedTab == 1) {
       return CartTab();
+    }
+    if (_selectedTab == 3) {
+      return WalletTab();
     }
     if (_selectedTab == 4) {
       return ProfileTab();

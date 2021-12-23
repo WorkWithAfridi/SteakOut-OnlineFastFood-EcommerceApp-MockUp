@@ -28,7 +28,7 @@ class _HomeTabState extends State<HomeTab> {
                 height: 15,
               ),
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   left: 15,
                   right: 15,
                 ),
@@ -79,7 +79,7 @@ class _HomeTabState extends State<HomeTab> {
                       });
                     }),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               Container(
@@ -132,7 +132,7 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 15,
               ),
               ListView.builder(
@@ -188,7 +188,7 @@ class _HomeTabState extends State<HomeTab> {
                                   crossAxisAlignment:
                                   CrossAxisAlignment.start,
                                   children: [
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 20,
                                     ),
                                     Row(
